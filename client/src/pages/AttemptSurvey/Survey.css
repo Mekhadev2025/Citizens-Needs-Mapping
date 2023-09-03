@@ -1,0 +1,21 @@
+html, body { height: 100%; }
+.surveyContainer {
+    height: 100vh; 
+    text-align:left;
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+     margin:auto;
+    
+  }
+.surveyForm{
+    
+    display: flex;
+    flex-direction:column;
+ 
+}
+.surveyContent {
+    max-width: 30rem;
+  }
+  
