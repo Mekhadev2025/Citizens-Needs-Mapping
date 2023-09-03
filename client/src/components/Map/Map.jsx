@@ -25,8 +25,10 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
   };
 
  
-  return (
+  return ( 
+    <><h1 className="mapTitle">District Map Visualization</h1>
     <div className="mapContainer">
+     
       <div className="mapImg">
         <svg
           width="458"
@@ -384,6 +386,8 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
  
       </div>
     </div>
+    </>
+  
   );
 };
 

@@ -4,8 +4,18 @@
 }
 .mapImg {
   margin-left: 7rem;
+  
 }
-
+.mapTitle{
+  color: #010101;
+font-family: Public Sans;
+font-size: 3.125rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.5625rem; 
+text-align:center;
+  margin-bottom:7rem;
+}
 .card {
   width: 50rem;
   height: 33.25rem;
