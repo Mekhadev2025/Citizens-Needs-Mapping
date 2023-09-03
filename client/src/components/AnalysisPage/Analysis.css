@@ -103,3 +103,15 @@ display:flex;
 flex-direction:column;
 gap:2rem;
 }
+
+@media screen and (max-width:1280px)
+{
+    .districtName ,
+    .btnGrp,
+    .analysisTitle,
+    .analysisCont{
+          margin-left:5rem;
+
+    }
+      
+}
