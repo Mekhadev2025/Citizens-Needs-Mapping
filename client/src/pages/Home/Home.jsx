@@ -2,8 +2,7 @@ import React from "react";
 import "../Home/Home.css";
 import Hero from "../../components/Hero/Hero";
 import Map from "../../components/Map/Map"
- 
-const Home = () => {
+const Home = ({selectedDistrict,onSelectDistrict}) => {
   return (
     <div>
       <Hero />
@@ -16,8 +15,7 @@ const Home = () => {
         more responsive communities that prioritize the well-being of every
         member
       </p>
-      <Map/>
-    
+      <Map selectedDistrict={selectedDistrict} onSelectDistrict={onSelectDistrict}/>
     </div>
   );
 };

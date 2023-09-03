@@ -59,3 +59,17 @@ margin-top:2rem;
   justify-content:center;
   align-items:center;
 }
+
+@media screen and (max-width:1280px)
+{
+
+  .mapContainer{
+    gap:3rem;
+  }
+  .mapImg{
+    margin-left:3rem;
+  }
+  .card{
+    width:40rem;
+  }
+}

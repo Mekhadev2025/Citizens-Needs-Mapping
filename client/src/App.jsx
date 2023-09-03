@@ -1,19 +1,54 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Outlet,
+} from "react-router-dom";
+import DistrictList from "./components/DistrictList/DistrictList";
+import AnalysisPage from "./components/AnalysisPage/AnalysisPage";
+import "./App.css";
+
 import Survey from "./pages/AttemptSurvey/Survey.jsx";
 import Home from "./pages/Home/Home";
 
-function App() {
+const App = () => {
+  // const districts = ['District 1', 'District 2', 'District 3'];
+  const [selectedDistrict, setSelectedDistrict] = useState(null);
+
+  const onSelectDistrict = (district) => {
+    setSelectedDistrict(district);
+  };
+
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/survey" element={<Survey />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/survey" element={<Survey />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              selectedDistrict={selectedDistrict}
+              onSelectDistrict={onSelectDistrict}
+            />
+          }
+        />
+        <Route
+          path="/analysis"
+          element={<AnalysisPage selectedDistrict={selectedDistrict} />}
+        />
+        */
+        {/* <Route
+          path="/"
+          element={<DistrictList districts={districts} onSelectDistrict={onSelectDistrict} />}
+        />
+        <Route
+          path="/analysis"
+          element={<AnalysisPage selectedDistrict={selectedDistrict} />}
+        /> */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
