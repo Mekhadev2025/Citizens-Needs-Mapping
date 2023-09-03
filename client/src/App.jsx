@@ -13,7 +13,6 @@ import Survey from "./pages/AttemptSurvey/Survey.jsx";
 import Home from "./pages/Home/Home";
 
 const App = () => {
-  // const districts = ['District 1', 'District 2', 'District 3'];
   const [selectedDistrict, setSelectedDistrict] = useState("Kasaragod");
 
   const onSelectDistrict = (district) => {
@@ -37,15 +36,8 @@ const App = () => {
           path="/analysis"
           element={<AnalysisPage selectedDistrict={selectedDistrict} />}
         />
-        */
-        {/* <Route
-          path="/"
-          element={<DistrictList districts={districts} onSelectDistrict={onSelectDistrict} />}
-        />
-        <Route
-          path="/analysis"
-          element={<AnalysisPage selectedDistrict={selectedDistrict} />}
-        /> */}
+       
+       
       </Routes>
     </Router>
   );
