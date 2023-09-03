@@ -14,7 +14,7 @@ import Home from "./pages/Home/Home";
 
 const App = () => {
   // const districts = ['District 1', 'District 2', 'District 3'];
-  const [selectedDistrict, setSelectedDistrict] = useState(null);
+  const [selectedDistrict, setSelectedDistrict] = useState("Kasaragod");
 
   const onSelectDistrict = (district) => {
     setSelectedDistrict(district);

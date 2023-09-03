@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 const Map = ({selectDistrict,onSelectDistrict}) => {
   const navigate = useNavigate();
-  const [selectedDistrict, setSelectedDistrict] = useState("Kasargod");
+  const [selectedDistrict, setSelectedDistrict] = useState("Kasaragod");
   const [cardContent,setCardContent]=useState(false)
   const districtColors = {
     defaultColor: "#FF3358",
@@ -172,10 +172,10 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
               fill="#33151F"
             />
             <path
-              id="Kasargod"
-              onClick={() => handleDistrictClick("Kasargod")}
+              id="Kasaragod"
+              onClick={() => handleDistrictClick("Kasaragod")}
               fill={
-                selectedDistrict === "Kasargod"
+                selectedDistrict === "Kasaragod"
                   ? districtColors.selectedColor
                   : districtColors.defaultColor
               }
