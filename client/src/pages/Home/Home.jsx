@@ -1,7 +1,7 @@
 import React from "react";
 import "../Home/Home.css";
 import Hero from "../../components/Hero/Hero";
-
+import Map from "../../components/Map/Map"
 const Home = () => {
   return (
     <div>
@@ -15,6 +15,7 @@ const Home = () => {
         more responsive communities that prioritize the well-being of every
         member
       </p>
+      <Map/>
     </div>
   );
 };
