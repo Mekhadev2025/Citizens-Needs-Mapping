@@ -34,6 +34,9 @@ line-height: 1.5625rem; /* 104.167% */
 letter-spacing: -0.015rem;
 cursor:pointer;
 }
+.basic:hover{
+    background: black;
+}
 .std {
   width: 12.875rem;
   height: 3.375rem;
@@ -50,6 +53,9 @@ line-height: 1.5625rem; /* 104.167% */
 letter-spacing: -0.015rem;
 cursor:pointer;
 }
+.std:hover{
+    background: black;
+}
 .premium {
   width: 12.875rem;
   height: 3.375rem;
@@ -64,4 +70,7 @@ font-weight: 600;
 line-height: 1.5625rem; /* 104.167% */
 letter-spacing: -0.015rem;
 cursor:pointer;
+}
+.premium:hover{
+    background: black;
 }
