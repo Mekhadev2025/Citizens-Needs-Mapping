@@ -1,0 +1,61 @@
+.mapContainer {
+  display: flex;
+  justify-content:space-between;
+}
+.mapImg {
+  margin-left: 7rem;
+}
+
+.card {
+  width: 50rem;
+  height: 33.25rem;
+  background: #f8f8f8;
+  box-shadow: 0px 4px 35px 5px rgba(129, 125, 125, 0.25);
+  margin-right:8rem;
+  margin-top:1rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  /* align-items:center; */
+}
+
+.cardTitle{
+color: #000;
+font-family: Montserrat;
+font-size: 2rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.5625rem; 
+letter-spacing: 0.27313rem;
+text-align:center;
+margin-top:2rem;
+}
+
+.cardButton{
+    color: #FFF;
+    font-family:Public Sans;
+    font-size: 1.0625rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background:black;
+    border:none;
+    width:16.5rem;
+    height:3.5rem;
+    text-align:center;
+     cursor:pointer;
+    
+}
+
+.cardButton:hover{
+  background:#FF3358;
+    color:white;
+    transition:.5s ease all ;
+}
+
+.btn-container{
+  margin:3rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
