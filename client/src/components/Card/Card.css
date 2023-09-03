@@ -1,14 +1,53 @@
 .cardCont {
- margin:0;
- padding:0;
- box-sizing:border-box;
- position:relative;
- top:5rem;
- left:3rem;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+  top: 5rem;
+  left: 3rem;
   width: 66.375rem;
   height: 6.375rem;
   background: #f5f5f5;
   box-shadow: -2px 4px 12px 0px rgba(0, 0, 0, 0.25),
     0px -2px 8px 0px rgba(0, 0, 0, 0.25);
- 
+    display:flex;
+    gap:2rem;
+    align-items:center;
+    
+}
+
+.sideBox {
+  width: 1.25rem;
+  height: 6.5625rem;
+  background: #574949;
+}
+
+
+.cardNeed{
+    white-space: nowrap;
+    color: #000;
+    font-family: Public Sans;
+    font-size: 1.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5625rem; /* 83.333% */
+    letter-spacing: 0.075rem;
+}
+
+.cardVote{
+    white-space: nowrap; /* Prevent text from wrapping */
+  
+color: #625255;
+font-family: Public Sans;
+font-size: 1.5rem;
+font-style: normal;
+font-weight: 600;
+line-height: 1.5625rem; /* 104.167% */
+letter-spacing: -0.015rem;
+margin-left:7rem;
+}
+
+.cardBar{
+    margin-right:2rem;
+    margin-left:3rem;
 }

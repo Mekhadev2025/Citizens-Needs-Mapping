@@ -3,9 +3,10 @@
 import React,{useState} from 'react';
 import "../AnalysisPage/Analysis.css"
 import Card from "../../components/Card/Card"
+ 
 const AnalysisPage = ({ selectedDistrict }) => {
   const [selectedButton,setSelectedButton]=useState("basic")
-
+ 
   const handleButton=(btnName)=>{
    setSelectedButton(btnName)
   }
@@ -25,8 +26,10 @@ const AnalysisPage = ({ selectedDistrict }) => {
         {selectedButton} Needs
          </h2>
          <div className="analysisCont">
-            <Card/>
-            <Card/>
+            <Card need="Public School" vote="13" value="75" />
+            <Card need="Public toilet" vote="5" value="50" />
+           
+
          </div>
       </div>
     </div>
