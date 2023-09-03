@@ -24,6 +24,7 @@
 
 
 .cardNeed{
+    text-transform:capitalize;
     white-space: nowrap;
     color: #000;
     font-family: Public Sans;
