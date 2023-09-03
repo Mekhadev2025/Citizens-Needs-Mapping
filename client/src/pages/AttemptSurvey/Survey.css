@@ -10,7 +10,7 @@ html, body { height: 100%; }
     
   }
 .surveyForm{
-    
+    max-width: 30rem;
     display: flex;
     flex-direction:column;
  
