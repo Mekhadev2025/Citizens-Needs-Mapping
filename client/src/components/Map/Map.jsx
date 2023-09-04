@@ -1,8 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import Chart from "../../components/Chart/Chart"
 import "../Map/Map.css";
-import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import axios from "axios"
 const Map = ({selectDistrict,onSelectDistrict}) => {
   const navigate = useNavigate();
   const [selectedDistrict, setSelectedDistrict] = useState("Kasaragod");
@@ -11,7 +11,21 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
     defaultColor: "#FF3358",
     selectedColor: "grey",
   };
- 
+   const[propsData,setPropsData]=useState({})
+  const fetchData=async(districtId) =>{
+    try {
+      const response = await axios.get(`http://localhost:5000/api/surveys/${districtId}`);
+      const data = response.data;
+      console.log(data);
+      setPropsData(data)
+      // console.log("props",propsData.district)
+      // console.log("data=",data.district)
+      // console.log("PropsData",propsData)
+    } catch (error) {
+
+      console.error('Error fetching data:', error);
+    }
+  }
 
   const handleSubmit= (district) => { 
     navigate(`/analysis?district=${district}`);
@@ -19,9 +33,11 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
   };
   const handleDistrictClick = (districtId) => {
     console.log(districtId)
+   fetchData(districtId);
     setSelectedDistrict(districtId);
     setCardContent(true)
    onSelectDistrict(districtId)
+
   };
 
  
@@ -362,10 +378,10 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
               d="M387.259 617.132L369.638 610.253C369.519 610.207 369.386 610.19 369.256 610.205C369.126 610.22 369.004 610.266 368.905 610.338L359.519 617.228C359.451 617.279 359.371 617.319 359.284 617.343C359.196 617.368 359.103 617.378 359.011 617.372C358.918 617.366 358.829 617.344 358.747 617.309C358.666 617.273 358.594 617.224 358.537 617.164L328.677 585.945C328.61 585.878 328.564 585.798 328.543 585.713C328.522 585.628 328.527 585.54 328.556 585.457C328.586 585.373 328.64 585.297 328.713 585.234C328.786 585.171 328.877 585.123 328.978 585.095L356.456 577.109C356.567 577.075 356.688 577.066 356.806 577.083C356.923 577.1 357.033 577.142 357.123 577.205L371.995 587.636C372.096 587.708 372.221 587.753 372.354 587.767C372.487 587.78 372.622 587.76 372.741 587.71L398.609 576.801C398.708 576.759 398.819 576.738 398.931 576.739C399.043 576.741 399.153 576.766 399.25 576.811L418.821 585.945C418.953 586.005 419.057 586.1 419.114 586.214C419.171 586.328 419.178 586.455 419.135 586.573L416.635 593.389C416.606 593.465 416.598 593.545 416.611 593.624C416.625 593.703 416.66 593.779 416.714 593.846L426.911 606.382C426.963 606.445 426.997 606.515 427.013 606.59C427.029 606.664 427.026 606.74 427.004 606.813C426.982 606.886 426.941 606.954 426.885 607.014C426.828 607.073 426.757 607.122 426.676 607.159L404.735 617.026C404.631 617.074 404.544 617.143 404.484 617.228C404.425 617.312 404.394 617.407 404.395 617.505L404.382 628.776C404.38 628.907 404.319 629.034 404.211 629.132C404.102 629.23 403.954 629.292 403.793 629.307L387.036 630.902C386.938 630.912 386.838 630.904 386.743 630.878C386.649 630.853 386.563 630.81 386.492 630.754C386.42 630.698 386.365 630.63 386.33 630.555C386.295 630.479 386.282 630.398 386.29 630.318L387.639 617.664C387.649 617.555 387.618 617.445 387.55 617.35C387.483 617.255 387.381 617.179 387.259 617.132Z"
             />
             <path
-              id="Thiruvananathapuram"
-              onClick={() => handleDistrictClick("Thiruvananathapuram")}
+              id="Thiruvananthapuram"
+              onClick={() => handleDistrictClick("Thiruvananthapuram")}
               fill={
-                selectedDistrict === "Thiruvananathapuram"
+                selectedDistrict === "Thiruvananthapuram"
                   ? districtColors.selectedColor
                   : districtColors.defaultColor
               }
@@ -378,7 +394,7 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
     
             <>
             <h1 className="cardTitle">{selectedDistrict}</h1>
-        <Chart/>
+        <Chart value={propsData}/>
         <div className="btn-container">
            <button className="cardButton" onClick={() => handleSubmit(selectedDistrict)}>View Detailed analysis</button>
         </div>

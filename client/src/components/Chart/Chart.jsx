@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 import "chartjs-plugin-datalabels"; // Import the datalabels plugin
 
-const DoughnutChart = () => {
+const DoughnutChart = (props) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ const DoughnutChart = () => {
       labels: ["Basic Need", "Standard Need", "Premium Need"],
       datasets: [
         {
-          data: [30, 40, 50],
+          data: [props.value.totalBasicNeeds, props.value.totalStandardNeeds, props.value.totalPremiumNeeds],
           backgroundColor: ["#62F54A", "#FF6433", "#3333FF"],
         },
       ],
@@ -23,7 +23,7 @@ const DoughnutChart = () => {
       maintainAspectRatio: false,
       plugins: {
         legend: {
-            position: 'right'
+          position: 'right'
         },
         datalabels: { // Configure the datalabels plugin
           color: "white", // Label text color
@@ -48,10 +48,10 @@ const DoughnutChart = () => {
       // Cleanup chart on unmount
       myDoughnutChart.destroy();
     };
-  }, []);
+  }, [props.value.totalBasicNeeds, props.value.totalStandardNeeds, props.value.totalPremiumNeeds]);
 
   return (
-    <div className="doughnut-chart-container" style={{ margin: "20px" }}> {/* Add margin */}
+    <div className="doughnut-chart-container" style={{ margin: "20px" }}>
       <canvas ref={chartRef} />
     </div>
   );
