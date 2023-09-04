@@ -11,7 +11,7 @@
   box-shadow: -2px 4px 12px 0px rgba(0, 0, 0, 0.25),
     0px -2px 8px 0px rgba(0, 0, 0, 0.25);
     display:flex;
-    gap:2rem;
+    gap:1rem;
     align-items:center;
     
 }
@@ -28,7 +28,7 @@
     white-space: nowrap;
     color: #000;
     font-family: Public Sans;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;
     line-height: 1.5625rem; /* 83.333% */
@@ -45,10 +45,13 @@ font-style: normal;
 font-weight: 600;
 line-height: 1.5625rem; /* 104.167% */
 letter-spacing: -0.015rem;
-margin-left:7rem;
+ position:absolute;
+ right:25rem;
 }
 
 .cardBar{
-    margin-right:2rem;
-    margin-left:3rem;
+  
+    position:absolute;
+    right:1rem;
+
 }
