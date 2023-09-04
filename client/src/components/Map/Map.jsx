@@ -14,7 +14,7 @@ const Map = ({selectDistrict,onSelectDistrict}) => {
    const[propsData,setPropsData]=useState({})
   const fetchData=async(districtId) =>{
     try {
-      const response = await axios.get(`http://localhost:5000/api/surveys/${districtId}`);
+      const response = await axios.get(`https://citizens-needs-mapping-whzj.vercel.app/api/surveys/${districtId}`);
       const data = response.data;
       console.log(data);
       setPropsData(data)

@@ -1,13 +1,35 @@
  // src/components/AnalysisPage.js
-
-import React,{useState} from 'react';
+import axios from "axios"
+import React,{useState,useEffect} from 'react';
 import "../AnalysisPage/Analysis.css"
 import Card from "../../components/Card/Card"
  
 const AnalysisPage = ({ selectedDistrict }) => {
-  const [selectedButton,setSelectedButton]=useState("basic")
- 
 
+  const basicNeeds=['Primary School', 'Public Toilet', 'Street Light', 'Health clinic', 'Municipal Water Supply', 'Road Reconstruction', 'Avoid Powercuts']
+  console.log("selceted",selectedDistrict)
+  const[propsData,setPropsData]=useState({})
+  const [selectedButton,setSelectedButton]=useState("basic")
+
+  const fetchData=async(districtId) =>{
+    try {
+      const response = await axios.get(`https://citizens-needs-mapping-whzj.vercel.app/api/surveys/${districtId}`);
+      const data = response.data;
+  
+      setPropsData(data)
+   
+    } catch (error) {
+
+      console.error('Error fetching data:', error);
+    }
+  }
+  useEffect(() => {
+    fetchData(selectedDistrict);
+  }, [selectedDistrict]);
+
+
+  const basic=propsData.basicNeeds;
+  console.log("baisic",basic)
 
   const basicNeed=[{
     need:"Public School",
@@ -45,6 +67,12 @@ const AnalysisPage = ({ selectedDistrict }) => {
   }
   
 ]
+
+
+//    Primary School{
+
+//    }, 'Public Toilet', 'Street Light', 'Health clinic', 'Municipal Water Supply', 'Road Reconstruction', 'Avoid Powercuts']
+// ]
 
 const stdNeed=[{
   need:"Public Library",
