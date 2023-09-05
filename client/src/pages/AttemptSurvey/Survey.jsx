@@ -1,9 +1,10 @@
 import React from "react";
 import "../AttemptSurvey/Survey.css"
 import { useState } from "react";
-import {useNavigate} from "react-router-dom"
+import Popper from "../../components/Popper/Popper"
+ 
 const Survey = () => {
-
+  const [submit,setSubmit]=useState(false)
   const [nameError, setNameError] = useState("");
   const [ageError, setAgeError] = useState("");
   const [formData, setFormData] = useState({
@@ -32,7 +33,6 @@ const Survey = () => {
   }
 
   const handleSubmit = async (e) => {
-    const navigate=useNavigate();
     e.preventDefault();
     const nameRegex = /^[a-zA-Z0-9\s]+$/; 
     const ageRegex = /^[0-9]+$/;
@@ -60,6 +60,8 @@ const Survey = () => {
 
       if (response.ok) {
         console.log("Thank you for your contribution");
+        setFormData("")
+         setSubmit(true)
         // You can perform any additional actions here after a successful submission.
       } else {
         console.error("Error submitting the form");
@@ -67,13 +69,17 @@ const Survey = () => {
     } catch (error) {
       console.error("Error:", error);
     }
-    // navigate("/")
   };
 
 
   return (
     <div className="surveyContainer">
-      <h1 className="surveyHeader">Citizen Needs</h1>
+      {
+        submit ===true?(
+          <Popper trigger={submit} setTrigger={setSubmit}>
+                <h1 className="voteMsg">Thanks for voting</h1>
+        </Popper>):(
+          <><h1 className="surveyHeader">Citizen Needs</h1>
       <p className="surveyContent">
         The whole purpose of this form is to satisfy the requirement of public
         data for a data science internship and the information collected will be
@@ -221,6 +227,10 @@ const Survey = () => {
         <button  className="surveyBtn"
         >SUBMIT</button>
       </form>
+          </>
+        )
+      }
+      
     </div>
   );
 };

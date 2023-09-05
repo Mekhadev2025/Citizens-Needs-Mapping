@@ -126,3 +126,8 @@ width: 10rem;
     margin-bottom:0.5rem ;
     font-family:Public Sans;
   }
+
+  .voteMsg{
+    font-family:Public Sans;
+    text-align:center;
+  }
