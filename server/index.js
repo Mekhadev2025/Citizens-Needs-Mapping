@@ -8,7 +8,12 @@ const port =  5000;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.join(__dirname, 'client')));
 
+// Handle any other routes by returning the React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/index.html'));
+});
 mongoose.connect('mongodb+srv://mekha:mekha@cluster0.edfd8bc.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
