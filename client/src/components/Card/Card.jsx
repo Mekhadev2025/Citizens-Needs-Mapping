@@ -10,7 +10,7 @@ const Card = (props) => {
            <div className='cardNeed'>{props.need}</div>
            <div className='cardVote'>{props.vote} votes</div>
            <div className='cardBar'>
-            <LinearGauge value={guageValue}/>
+            <LinearGauge value={guageValue} maxValue={props.maxValue}/>
            </div>
            
        </div>

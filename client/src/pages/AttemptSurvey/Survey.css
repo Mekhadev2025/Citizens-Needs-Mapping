@@ -113,3 +113,9 @@ width: 10rem;
  .textSurvey{
     height:6rem;
   }
+  .error{
+    color:red;
+    font-size:12px;
+    margin-bottom:0.5rem ;
+    font-family:Public Sans;
+  }

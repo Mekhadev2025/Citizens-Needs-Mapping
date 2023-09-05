@@ -96,6 +96,10 @@ const AnalysisPage = ({ selectedDistrict }) => {
     }
   });
 
+  const totalBasicCount = Object.values(categoryCounts).reduce((acc, curr) => acc + curr, 0);
+  const totalStandardCount = Object.values(categoryCounts2).reduce((acc, curr) => acc + curr, 0);
+  const totalPremiumCount = Object.values(categoryCounts3).reduce((acc, curr) => acc + curr, 0);
+
 
 
 
@@ -124,18 +128,19 @@ const AnalysisPage = ({ selectedDistrict }) => {
           {
             selectedButton === "basic" ? (
               Object.entries(categoryCounts).map((item, index) => (
-                <Card key={index} need={item[0]} vote={item[1]} value={item[1]} />
+                <Card key={index} need={item[0]} vote={item[1]} value={item[1]} maxValue={totalBasicCount} />
               ))
             ) : selectedButton === "standard" ? (
               Object.entries(categoryCounts2).map((item, index) => (
-                <Card key={index} need={item[0]} vote={item[1]} value={item[1]} />
+                <Card key={index} need={item[0]} vote={item[1]} value={item[1]}  maxValue={totalStandardCount}/>
               ))
             ) : (Object.entries(categoryCounts3).map((item, index) => (
-              <Card key={index} need={item[0]} vote={item[1]} value={item[1]} />
+              <Card key={index} need={item[0]} vote={item[1]} value={item[1]}  maxValue={totalPremiumCount}/>
             ))
                
             )
           }
+          
         </div>
       </div>
     </div>

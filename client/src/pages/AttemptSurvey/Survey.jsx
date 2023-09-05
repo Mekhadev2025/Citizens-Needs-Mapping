@@ -3,7 +3,8 @@ import "../AttemptSurvey/Survey.css"
 import { useState } from "react";
 const Survey = () => {
 
-
+  const [nameError, setNameError] = useState("");
+  const [ageError, setAgeError] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     age: "",
@@ -20,12 +21,31 @@ const Survey = () => {
     console.log("Field entered")
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
+    if (name === "name") {
+      setNameError("");
+    }
+    if (name === "age") {
+      setAgeError("");
+    }
 
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const nameRegex = /^[a-zA-Z0-9\s]+$/; 
+    const ageRegex = /^[0-9]+$/;
+
+    if (!nameRegex.test(formData.name)) {
+      setNameError("Name should consist of only letters and digits.");
+      console.error("Name should consist of only letters and digits.");
+      return; 
+    }
+
+    if (!ageRegex.test(formData.age) || parseInt(formData.age) <= 3) {
+      setAgeError("Invalid age. Please enter an age greater than 3 ");
+      console.error("Age should consist of only numbers and be greater than 3 years.");
+      return; 
+    }
   console.log(formData)
     try {
       const response = await fetch("https://citizens-needs-mapping-whzj.vercel.app/api/surveys", {
@@ -68,6 +88,7 @@ const Survey = () => {
         name="name"
         value={formData.name}
         onChange={handleChange}></input>
+          {nameError && <p className="error">{nameError}</p>}
         <label htmlFor="age"  className="ageLabel">Age</label>
         <input type="text"  
         name="age"
@@ -76,6 +97,8 @@ const Survey = () => {
         onChange={handleChange} >
 
         </input>
+
+      {ageError && <p className="error">{ageError}</p>}
         <label htmlFor="district"  className="distLabel">Select District</label>
         <select name="district"  className="surveyDist" 
         type="text"  
