@@ -1,14 +1,52 @@
 import React from "react";
 import "../AttemptSurvey/Survey.css"
-
+import { useState } from "react";
 const Survey = () => {
+
+
+  const [formData, setFormData] = useState({
+    name: "",
+    age: "",
+    district: "",
+    occupation: "",
+    basicNeed: "",
+    stdNeed: "",
+    preNeed: "",
+    issue: "",
+    text: "",
+  });
 
   const handleClick=()=>{
     console.log("Thank you for your contribution")
-
+    setFormData({ ...formData, [name]: value });
 
 
   }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch("YOUR_BACKEND_ENDPOINT_URL", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log("Thank you for your contribution");
+        // You can perform any additional actions here after a successful submission.
+      } else {
+        console.error("Error submitting the form");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+
   return (
     <div className="surveyContainer">
       <h1 className="surveyHeader">Citizen Needs</h1>
@@ -23,7 +61,7 @@ const Survey = () => {
         a considerably great developmental change in your locality in the near
         future
       </p>
-      <form  className="surveyForm">
+      <form  className="surveyForm" onSubmit={handleSubmit}>
         <label htmlFor="name" className="nameLabel">Name</label>
         <input type="text"  className="surveyName"></input>
         <label htmlFor="age"  className="ageLabel">Age</label>
