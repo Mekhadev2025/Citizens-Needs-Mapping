@@ -112,7 +112,7 @@ const Survey = () => {
           <option >Kozhikode</option>
           <option >Wayanad</option>
           <option >Malappuram </option>
-          <option > Palakkad</option>
+          <option >Palakkad</option>
           <option >Thrissur </option>
           <option >Ernakulam</option>
           <option >Idukki</option>
@@ -120,7 +120,7 @@ const Survey = () => {
           <option >Alappuzha</option>
           <option >Pathanamthitta</option>
           <option >Kollam</option>
-          <option >Thiruvanathapuram</option>
+          <option >Thiruvananthapuram</option>
         </select>
         <label htmlFor="occupation"  className="occuLabel">Select Occupation</label>
         <select name="occupation"
