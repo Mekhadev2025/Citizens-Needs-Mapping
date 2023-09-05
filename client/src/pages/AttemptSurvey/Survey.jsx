@@ -87,11 +87,13 @@ const Survey = () => {
         <input type="text"  className="surveyName"
         name="name"
         value={formData.name}
+        required
         onChange={handleChange}></input>
           {nameError && <p className="error">{nameError}</p>}
         <label htmlFor="age"  className="ageLabel">Age</label>
         <input type="text"  
         name="age"
+        required
         className="surveyAge"
         value={formData.age}
         onChange={handleChange} >
@@ -102,6 +104,7 @@ const Survey = () => {
         <label htmlFor="district"  className="distLabel">Select District</label>
         <select name="district"  className="surveyDist" 
         type="text"  
+        required
         value={formData.district}
         onChange={handleChange}
         id=""
@@ -124,7 +127,8 @@ const Survey = () => {
         </select>
         <label htmlFor="occupation"  className="occuLabel">Select Occupation</label>
         <select name="occupation"
-        type="text"  
+        type="text" 
+        required 
         value={formData.occupation}
         onChange={handleChange}
         id=""
