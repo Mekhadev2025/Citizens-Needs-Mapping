@@ -5,9 +5,9 @@ const Survey = require('../models/survey.js');
 
 router.post('/surveys', async (req, res) => {
   try {
-    const { district,basicNeed,stdNeed,preNeed } = req.body;
+    const { name,age,district,occupation,basicNeed,stdNeed,preNeed,issue,text} = req.body;
 
-    const survey = new Survey({ district,basicNeed,stdNeed,preNeed });
+    const survey = new Survey({ name,age,district,occupation,basicNeed,stdNeed,preNeed,issue,text });
     await survey.save();
 
     res.status(201).json({ message: 'Survey response submitted successfully' });
