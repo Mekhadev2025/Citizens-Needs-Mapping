@@ -12,7 +12,7 @@
     },
     {
         "src": "/api",
-        "dest": "server/index.js"
+        "dest": "index.js"
       },
       {
         "src": "/(.*)",
