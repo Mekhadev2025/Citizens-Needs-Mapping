@@ -26,7 +26,7 @@ const Survey = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  console.log(formData)
     try {
       const response = await fetch("https://citizens-needs-mapping-whzj.vercel.app/api/surveys", {
         method: "POST",
@@ -125,7 +125,7 @@ const Survey = () => {
           <option >Select one</option>
           <option >Primary School </option>
           <option >Public Toilet</option>
-          <option >Strret Light</option>
+          <option >Street Light</option>
           <option >Health Clinic</option>
           <option  >Municipal Water Supply</option>
           <option  >Road Reconstruction</option>

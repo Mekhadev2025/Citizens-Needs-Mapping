@@ -34,7 +34,7 @@ const AnalysisPage = ({ selectedDistrict }) => {
     "Primary School",
     "Public Toilet",
     "Street Light",
-    "Health clinic",
+    "Health Clinic",
     "Municipal Water Supply",
     "Road Reconstruction",
     "Avoid Powercuts"
@@ -78,9 +78,9 @@ const AnalysisPage = ({ selectedDistrict }) => {
   const categories3 = [
 "Gym",
 "Theatre",
-"Tourist resorts",
-"Metro rail services",
-"Free wifi",
+"Tourist Resorts",
+"Metro Rail Services",
+"Free Wifi",
 "Turf"
   ];
 
