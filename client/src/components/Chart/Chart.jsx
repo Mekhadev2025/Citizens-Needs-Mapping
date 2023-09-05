@@ -12,7 +12,7 @@ const DoughnutChart = (props) => {
       datasets: [
         {
           data: [props.value.totalBasicNeeds, props.value.totalStandardNeeds, props.value.totalPremiumNeeds],
-          backgroundColor: ["#62F54A", "#FF6433", "#3333FF"],
+          backgroundColor: ["#FF0000", "#FF8126", "#1C61C8"],
         },
       ],
     };
