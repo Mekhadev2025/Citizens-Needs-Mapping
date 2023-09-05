@@ -22,7 +22,7 @@
 .basic {
   width: 12.875rem;
   height: 3.375rem;
-  background: #cfcfcf;
+  background: #FF0000;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   border: none;
   color: #FFF;
@@ -40,7 +40,7 @@ cursor:pointer;
 .std {
   width: 12.875rem;
   height: 3.375rem;
-  background: #ff3358;
+  background: #FF8126;
   box-shadow: -4px 7px 6px 0px rgba(0, 0, 0, 0.25);
 
   border: none;
@@ -59,7 +59,7 @@ cursor:pointer;
 .premium {
   width: 12.875rem;
   height: 3.375rem;
-  background: #524d50;
+  background: #1C61C8;
   box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
   border: none;
   color: #FFF;
