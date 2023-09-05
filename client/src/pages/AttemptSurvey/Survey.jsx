@@ -16,8 +16,9 @@ const Survey = () => {
     text: "",
   });
 
-  const handleClick=()=>{
-    console.log("Thank you for your contribution")
+  const handleChange=(e)=>{
+    console.log("Field entered")
+    const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
 
@@ -27,7 +28,7 @@ const Survey = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("YOUR_BACKEND_ENDPOINT_URL", {
+      const response = await fetch("https://citizens-needs-mapping-whzj.vercel.app/api/surveys", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -63,11 +64,25 @@ const Survey = () => {
       </p>
       <form  className="surveyForm" onSubmit={handleSubmit}>
         <label htmlFor="name" className="nameLabel">Name</label>
-        <input type="text"  className="surveyName"></input>
+        <input type="text"  className="surveyName"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}></input>
         <label htmlFor="age"  className="ageLabel">Age</label>
-        <input type="text"  className="surveyAge" ></input>
+        <input type="text"  
+        name="age"
+        className="surveyAge"
+        value={formData.age}
+        onChange={handleChange} >
+
+        </input>
         <label htmlFor="district"  className="distLabel">Select District</label>
-        <select name="district"  className="surveyDist" id="">
+        <select name="district"  className="surveyDist" 
+        type="text"  
+        value={formData.district}
+        onChange={handleChange}
+        id=""
+        >
           <option >Select a district </option>
           <option >Kasaragod</option>
           <option>Kannur</option>
@@ -85,7 +100,12 @@ const Survey = () => {
           <option >Thiruvanathapuram</option>
         </select>
         <label htmlFor="occupation"  className="occuLabel">Select Occupation</label>
-        <select name="occupation"  className="occup"id="">
+        <select name="occupation"
+        type="text"  
+        value={formData.occupation}
+        onChange={handleChange}
+        id=""
+          className="occup">
           <option>Select an Occupation</option>
           <option>Teacher</option>
           <option>Engineer</option>
@@ -95,53 +115,78 @@ const Survey = () => {
           <option>Unemployed </option>
         </select>
         <label htmlFor="basicNeed" className="basicLabel">Basic Need</label>
-        <select  id="" className="basicSurvey">
+        <select  name="basicNeed" id="" 
+        className="basicSurvey" 
+        type="text"  
+        value={formData.basicNeed}
+        onChange={handleChange}
+        
+        >
           <option >Select one</option>
-          <option value="">Primary School </option>
-          <option value="">Public Toilet</option>
-          <option value="">Strret Light</option>
-          <option value="">Health Clinic</option>
-          <option value="">Municipal Water Supply</option>
-          <option value="">Road Reconstruction</option>
-          <option value="">Avoid Powercuts</option>
+          <option >Primary School </option>
+          <option >Public Toilet</option>
+          <option >Strret Light</option>
+          <option >Health Clinic</option>
+          <option  >Municipal Water Supply</option>
+          <option  >Road Reconstruction</option>
+          <option  >Avoid Powercuts</option>
         </select>
         <label htmlFor="stdNeed" className="stdLabel">Standard Need</label>
-        <select   id=""className="stdSurvey">
-        <option value="">Select One</option>
-          <option value="publicLibrary">Public Library</option>
-          <option value="">Taxi Service</option>
-          <option value="">Public Park and Playground</option>
-          <option value="">Traffic Control</option>
-          <option value="">Night Patrol</option>
-          <option value="">Bus Waiting Shed</option>
-          <option value="">Better Disaster Prevention Schemes</option>
+        <select   id="" 
+        className="stdSurvey"  
+        type="text"  
+        value={formData.stdNeed}
+        onChange={handleChange}
+        name="stdNeed"
+        >
+        <option  >Select One</option>
+          <option  >Public Library</option>
+          <option  >Taxi Service</option>
+          <option  >Public Park and Playground</option>
+          <option  >Traffic Control</option>
+          <option  >Night Patrol</option>
+          <option  >Bus Waiting Shed</option>
+          <option  >Better Disaster Prevention Schemes</option>
         </select>
         <label htmlFor="preNeed" className="preLabel">Premium Need</label>
-        <select   id="" className="preSurvey">
-        <option value="">Select one</option>
+        <select   id="" className="preSurvey"  type="text"  
+        value={formData.preNeed}
+        onChange={handleChange}
+        name="preNeed"
+      >
+        <option  >Select one</option>
           <option >Gym</option>
-          <option value="">Theatre</option>
-          <option value="">Tourist Resorts</option>
-          <option value="">Metro rail Services</option>
-          <option value="">Free Wifi</option>
-          <option value="">Turf</option>
+          <option  >Theatre</option>
+          <option  >Tourist Resorts</option>
+          <option  >Metro rail Services</option>
+          <option  >Free Wifi</option>
+          <option  >Turf</option>
         </select>
         <label htmlFor="issue"className="issueLabel">
           Mention a serious public issue faced in the locality ,if any
         </label>
-        <select   id=""className="issueSurvey">
-        <option value="">Select one</option>
-          <option value="strayDogs">Stray Dogs</option>
-          <option value="">Theft Attacks</option>
-          <option value="">Broken Sewage</option>
-          <option value="">Damaged Roads</option>
+        <select   id=""className="issueSurvey" type="text"  
+        value={formData.issue}
+        onChange={handleChange}
+        name="issue"
+       >
+        <option  >Select one</option>
+          <option  >Stray Dogs</option>
+          <option  >Theft Attacks</option>
+          <option  >Broken Sewage</option>
+          <option  >Damaged Roads</option>
 
         </select>
         <label className="textLabel">Add Your Need</label>
-        <textarea className="textSurvey">
+        <textarea className="textSurvey"  
+        id=""
+         type="text"  
+        value={formData.text}
+        onChange={handleChange}
+        name="text">
 
         </textarea>
-        <button onClick={handleClick}  className="surveyBtn"
+        <button  className="surveyBtn"
         >SUBMIT</button>
       </form>
     </div>
