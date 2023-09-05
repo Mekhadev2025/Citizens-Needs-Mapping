@@ -17,5 +17,98 @@ html, body { height: 100%; }
 }
 .surveyContent {
     max-width: 30rem;
+    color: #000;
+font-family: Spectral;
+font-size: 1rem;
+font-style: normal;
+font-weight: 400;
+line-height: 1.5625rem;
+margin-top:3rem;
+margin-bottom:3rem;
   }
   
+
+  .surveyBtn{
+    border-radius: 0.25rem;
+background: #000;
+width: 30rem;
+heigth:3.5rem;
+padding: 1.25rem 2rem;
+border:none;
+color: #FFF;
+text-align: center;
+font-family: Public Sans;
+font-size: 1rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1rem; /* 100% */
+text-transform: uppercase;
+margin-top:3rem;
+
+
+  }
+  .surveyHeader{
+
+    color: #000;
+    font-family: Montserrat;
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem;
+  }
+ 
+  .surveyBtn:hover{
+    background: gray;
+    color:white;
+   
+  }
+
+  .nameLabel ,
+  .ageLabel ,
+  .distLabel,
+  .occuLabel,
+  .basicLabel,
+  .stdLabel,
+  .preLabel,
+  .issueLabel,
+  .textLabel{
+    color: #000;
+font-family: Montserrat;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 400;
+line-height: 0.875rem;
+margin-bottom:0.5rem;
+  }
+
+  .surveyName,
+  .surveyAge,
+  .surveyDist,
+  .occup ,
+  .basicSurvey,
+  .stdSurvey,
+  .preSurvey,
+  .issueSurvey,
+  .textSurvey{
+    height: 3.5rem;
+    border-radius: 0.25rem;
+border: 1px solid #C7C4C2;
+background: var(--white, #FFF);
+margin-bottom:1rem;
+color: #000;
+font-family: Montserrat;
+font-size: 1rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1rem;
+padding:0.5rem;
+  }
+  .surveyAge{
+  
+width: 10rem;
+  }
+
+
+ .textSurvey{
+    height:6rem;
+  }

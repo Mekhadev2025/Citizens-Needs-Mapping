@@ -2,6 +2,13 @@ import React from "react";
 import "../AttemptSurvey/Survey.css"
 
 const Survey = () => {
+
+  const handleClick=()=>{
+    console.log("Thank you for your contribution")
+
+
+
+  }
   return (
     <div className="surveyContainer">
       <h1 className="surveyHeader">Citizen Needs</h1>
@@ -16,38 +23,88 @@ const Survey = () => {
         a considerably great developmental change in your locality in the near
         future
       </p>
-      <form action="" className="surveyForm">
-        <label htmlFor="name">Name</label>
-        <input type="text" ></input>
-        <label htmlFor="age">Age</label>
-        <input type="text"  ></input>
-        <label htmlFor="district">Select District</label>
-        <select name="district" id="">
-          <option >Trivandrum</option>
+      <form  className="surveyForm">
+        <label htmlFor="name" className="nameLabel">Name</label>
+        <input type="text"  className="surveyName"></input>
+        <label htmlFor="age"  className="ageLabel">Age</label>
+        <input type="text"  className="surveyAge" ></input>
+        <label htmlFor="district"  className="distLabel">Select District</label>
+        <select name="district"  className="surveyDist" id="">
+          <option >Select a district </option>
+          <option >Kasaragod</option>
+          <option>Kannur</option>
+          <option >Kozhikode</option>
+          <option >Wayanad</option>
+          <option >Malappuram </option>
+          <option > Palakkad</option>
+          <option >Thrissur </option>
+          <option >Ernakulam</option>
+          <option >Idukki</option>
+          <option >Kottayam</option>
+          <option >Alappuzha</option>
+          <option >Pathanamthitta</option>
+          <option >Kollam</option>
+          <option >Thiruvanathapuram</option>
         </select>
-        <label htmlFor="occupation">Select Occupation</label>
-        <select name="occupation" id="">
-          <option>Occupation</option>
+        <label htmlFor="occupation"  className="occuLabel">Select Occupation</label>
+        <select name="occupation"  className="occup"id="">
+          <option>Select an Occupation</option>
+          <option>Teacher</option>
+          <option>Engineer</option>
+          <option>Housewife</option>
+          <option>Doctor</option>
+          <option>Student </option>
+          <option>Unemployed </option>
         </select>
-        <label htmlFor="basicNeed">Basic Need</label>
-        <select   id="">
-          <option value="primarySchool">Primary School</option>
+        <label htmlFor="basicNeed" className="basicLabel">Basic Need</label>
+        <select  id="" className="basicSurvey">
+          <option >Select one</option>
+          <option value="">Primary School </option>
+          <option value="">Public Toilet</option>
+          <option value="">Strret Light</option>
+          <option value="">Health Clinic</option>
+          <option value="">Municipal Water Supply</option>
+          <option value="">Road Reconstruction</option>
+          <option value="">Avoid Powercuts</option>
         </select>
-        <label htmlFor="stdNeed">Standard Need</label>
-        <select   id="">
+        <label htmlFor="stdNeed" className="stdLabel">Standard Need</label>
+        <select   id=""className="stdSurvey">
+        <option value="">Select One</option>
           <option value="publicLibrary">Public Library</option>
+          <option value="">Taxi Service</option>
+          <option value="">Public Park and Playground</option>
+          <option value="">Traffic Control</option>
+          <option value="">Night Patrol</option>
+          <option value="">Bus Waiting Shed</option>
+          <option value="">Better Disaster Prevention Schemes</option>
         </select>
-        <label htmlFor="preNeed">Premium Need</label>
-        <select   id="">
+        <label htmlFor="preNeed" className="preLabel">Premium Need</label>
+        <select   id="" className="preSurvey">
+        <option value="">Select one</option>
           <option >Gym</option>
+          <option value="">Theatre</option>
+          <option value="">Tourist Resorts</option>
+          <option value="">Metro rail Services</option>
+          <option value="">Free Wifi</option>
+          <option value="">Turf</option>
         </select>
-        <label htmlFor="issue">
+        <label htmlFor="issue"className="issueLabel">
           Mention a serious public issue faced in the locality ,if any
         </label>
-        <select   id="">
-          <option value="gym">Stray Dogs</option>
+        <select   id=""className="issueSurvey">
+        <option value="">Select one</option>
+          <option value="strayDogs">Stray Dogs</option>
+          <option value="">Theft Attacks</option>
+          <option value="">Broken Sewage</option>
+          <option value="">Damaged Roads</option>
+
         </select>
-        <button>SUBMIT</button>
+        <label className="textLabel">Add Your Need</label>
+        <textarea className="textSurvey">
+
+        </textarea>
+        <button onClick={handleClick}  className="surveyBtn"
+        >SUBMIT</button>
       </form>
     </div>
   );
