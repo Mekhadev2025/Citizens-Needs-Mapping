@@ -37,6 +37,8 @@ const AnalysisPage = () => {
     fetchData(selectedDistrict);
   }, [selectedDistrict]);
 
+
+
   // Basic needs categories and counts
   const categories = [
     "Primary School",
@@ -119,7 +121,10 @@ const AnalysisPage = () => {
   const handleButton = (btnName) => {
     setSelectedButton(btnName);
   };
-
+  
+  const sortCategoriesByVote = (categoryCounts) => {
+    return Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
+  };
   return (
     <div>
       <h2 className='districtName'>{selectedDistrict}</h2>
@@ -130,25 +135,40 @@ const AnalysisPage = () => {
       </div>
       <div className='analysisCard'>
         <h2 className='analysisTitle'>
-          {selectedButton} Needs
+          {selectedButton} Needs 
         </h2>
         <div className="analysisCont">
-          {
-            selectedButton === "basic" ? (
-              Object.entries(categoryCounts).map((item, index) => (
-                <Card key={index} need={item[0]} vote={item[1]} value={item[1]} maxValue={totalBasicCount} />
-              ))
-            ) : selectedButton === "standard" ? (
-              Object.entries(categoryCounts2).map((item, index) => (
-                <Card key={index} need={item[0]} vote={item[1]} value={item[1]}  maxValue={totalStandardCount}/>
-              ))
-            ) : (Object.entries(categoryCounts3).map((item, index) => (
-              <Card key={index} need={item[0]} vote={item[1]} value={item[1]}  maxValue={totalPremiumCount}/>
+          {selectedButton === "basic" ? (
+            sortCategoriesByVote(categoryCounts).map((item, index) => (
+              <Card
+                key={index}
+                need={item[0]}
+                vote={item[1]}
+                value={item[1]}
+                maxValue={totalBasicCount}
+              />
             ))
-               
-            )
-          }
-          
+          ) : selectedButton === "standard" ? (
+            sortCategoriesByVote(categoryCounts2).map((item, index) => (
+              <Card
+                key={index}
+                need={item[0]}
+                vote={item[1]}
+                value={item[1]}
+                maxValue={totalStandardCount}
+              />
+            ))
+          ) : (
+            sortCategoriesByVote(categoryCounts3).map((item, index) => (
+              <Card
+                key={index}
+                need={item[0]}
+                vote={item[1]}
+                value={item[1]}
+                maxValue={totalPremiumCount}
+              />
+            ))
+          )}
         </div>
       </div>
     </div>
