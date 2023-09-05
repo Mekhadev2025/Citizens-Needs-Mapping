@@ -2,9 +2,17 @@ import axios from "axios";
 import React, { useState, useEffect } from 'react';
 import "../AnalysisPage/Analysis.css";
 import Card from "../../components/Card/Card";
+import { useLocation } from 'react-router-dom';
+const AnalysisPage = () => {
+ 
+  const location = useLocation();
 
-const AnalysisPage = ({ selectedDistrict }) => {
-  console.log("selected", selectedDistrict);
+  // Extract the parameters using URLSearchParams
+  const searchParams = new URLSearchParams(location.search);
+
+  // Get the value of the "district" parameter
+  const selectedDistrict = searchParams.get("district");
+   console.log("selected", selectedDistrict);
   const [propsData, setPropsData] = useState({});
   const [selectedButton, setSelectedButton] = useState("basic");
   const [basicNeeds, setBasicNeeds] = useState([]); // Initialize basicNeeds state
