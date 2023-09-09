@@ -110,11 +110,6 @@ const AnalysisPage = () => {
   const totalStandardCount = Object.values(categoryCounts2).reduce((acc, curr) => acc + curr, 0);
   const totalPremiumCount = Object.values(categoryCounts3).reduce((acc, curr) => acc + curr, 0);
 
-
-
-
-
-
   console.log("categoryCounts", categoryCounts);
   console.log("categoryCounts2", categoryCounts2);
   console.log("categoryCounts2", categoryCounts3);
@@ -146,6 +141,7 @@ const AnalysisPage = () => {
                 vote={item[1]}
                 value={item[1]}
                 maxValue={totalBasicCount}
+                type="basic"
               />
             ))
           ) : selectedButton === "standard" ? (
@@ -156,6 +152,7 @@ const AnalysisPage = () => {
                 vote={item[1]}
                 value={item[1]}
                 maxValue={totalStandardCount}
+                type="standard"
               />
             ))
           ) : (
@@ -166,6 +163,7 @@ const AnalysisPage = () => {
                 vote={item[1]}
                 value={item[1]}
                 maxValue={totalPremiumCount}
+                type="premium"
               />
             ))
           )}

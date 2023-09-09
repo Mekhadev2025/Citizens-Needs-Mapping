@@ -9,7 +9,7 @@ const LinearGauge = ({ value ,maxValue}) => {
   return (
     <div className="horizontal-linear-gauge">
       <div className="gauge-bar">
-        <div className="gauge-fill" style={{ width: `${fillPercentage}%` }}></div>
+        <div className="gauge-fill" style={{ width: `${fillPercentage}%` ,backgroundColor: " black" }}></div>
       </div>
       
     </div>

@@ -17,7 +17,7 @@
   }
   
   .gauge-fill {
-    background-color:  #FF5070; 
+    
     height: 100%;
     transition: width 0.5s; 
     border-radius:9px; 
