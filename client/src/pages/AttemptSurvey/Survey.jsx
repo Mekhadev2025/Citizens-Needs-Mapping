@@ -198,22 +198,8 @@ const Survey = () => {
           <option  >Free Wifi</option>
           <option  >Turf</option>
         </select>
-        <label htmlFor="issue"className="issueLabel">
-          Mention a serious public issue faced in the locality ,if any
-        </label>
-        <select   id=""className="issueSurvey" type="text"  
-        value={formData.issue}
-        onChange={handleChange}
-        name="issue"
-       >
-        <option  >Select one</option>
-          <option  >Stray Dogs</option>
-          <option  >Theft Attacks</option>
-          <option  >Broken Sewage</option>
-          <option  >Damaged Roads</option>
-
-        </select>
-        <label className="textLabel">Add Your Need</label>
+         
+        <label className="textLabel">If your need is not mentioned in the list above ,add your need here</label>
         <textarea className="textSurvey"  
         id=""
          type="text"  
@@ -223,7 +209,7 @@ const Survey = () => {
 
         </textarea>
         <div className="textMsg">
- Your request will be subject to a comprehensive review upon submission, and if it is deemed appropriate, it will be subsequently updated on the website.</div>
+ Your need will be subject to a comprehensive review upon submission, and if it is deemed appropriate, it will be subsequently updated on the website.</div>
         <button  className="surveyBtn"
         >SUBMIT</button>
       </form>
