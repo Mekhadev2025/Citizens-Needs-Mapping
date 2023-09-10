@@ -290,15 +290,15 @@ const Map = ({ selectDistrict, onSelectDistrict }) => {
               <option value="">Kasaragod</option>
               <option value="">Kannur</option>
               <option value="">Kozhikode</option>
-              <option value="">Malappuram</option>
-              <option value="">Palakkad</option> 
               <option value="">Wayanad</option>
+              <option value="">Malappuram</option> 
               <option value="">Thrissur</option>
-              <option value="">Ernakulam</option>
-              <option value="">Idukki</option>
+              <option value="">Palakkad</option> 
+              <option value="">Ernakulam</option> 
+              <option value="">Alappuzha</option> 
               <option value="">Kottayam</option>
-              <option value="">Alappuzha</option>
-              <option value="">Pathanamthitta</option>
+              <option value="">Idukki</option>
+               <option value="">Pathanamthitta</option>
               <option value="">Kollam</option>
               <option value="">Thiruvananthapuram</option>
              
