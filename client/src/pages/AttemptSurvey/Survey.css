@@ -131,3 +131,9 @@ width: 10rem;
     font-family:Public Sans;
     text-align:center;
   }
+
+  @media screen and (max-width:480px){
+    .surveyBtn{
+      width:15rem;
+    }
+  }
