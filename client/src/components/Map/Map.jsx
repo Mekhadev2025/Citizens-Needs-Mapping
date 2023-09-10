@@ -1,17 +1,21 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "../../components/Chart/Chart";
 import "../Map/Map.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
 const Map = ({ selectDistrict, onSelectDistrict }) => {
   const navigate = useNavigate();
   const [selectedDistrict, setSelectedDistrict] = useState("Kasaragod");
   const [cardContent, setCardContent] = useState(false);
+  const [propsData, setPropsData] = useState({});
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
   const districtColors = {
     defaultColor: "#FF3358",
     selectedColor: "grey",
   };
-  const [propsData, setPropsData] = useState({});
+
   const fetchData = async (districtId) => {
     try {
       const response = await axios.get(
@@ -20,9 +24,6 @@ const Map = ({ selectDistrict, onSelectDistrict }) => {
       const data = response.data;
       console.log(data);
       setPropsData(data);
-      // console.log("props",propsData.district)
-      // console.log("data=",data.district)
-      // console.log("PropsData",propsData)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -31,6 +32,7 @@ const Map = ({ selectDistrict, onSelectDistrict }) => {
   const handleSubmit = (district) => {
     navigate(`/analysis?district=${district}`);
   };
+
   const handleDistrictClick = (districtId) => {
     console.log(districtId);
     fetchData(districtId);
@@ -39,15 +41,33 @@ const Map = ({ selectDistrict, onSelectDistrict }) => {
     onSelectDistrict(districtId);
   };
 
-    useEffect(()=>{
-      handleDistrictClick("Kasaragod")
-    },[])
+  useEffect(() => {
+    handleDistrictClick("Kasaragod");
+  }, []);
+
+  // Function to update screen width when the window is resized
+  const updateScreenWidth = () => {
+    setScreenWidth(window.innerWidth);
+  };
+
+  // Add an event listener to track window resize
+  useEffect(() => {
+    window.addEventListener("resize", updateScreenWidth);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", updateScreenWidth);
+    };
+  }, []);
+
   return (
     <>
       <h1 className="mapTitle">District Map Visualization</h1>
       <div className="mapContainer">
-        <div className="mapImg">
-          <svg
+        {screenWidth > 480 ? (
+       
+          <div className="mapImg">
+             <svg
             width="508"
             height="682"
             viewBox="0 0 508 682"
@@ -261,7 +281,31 @@ const Map = ({ selectDistrict, onSelectDistrict }) => {
               />
             </g>
           </svg>
-        </div>
+          </div>
+        ) : (
+        
+          <div className="selectDist">
+            < select>
+              <option value="">Select District</option>
+              <option value="">Kasaragod</option>
+              <option value="">Kannur</option>
+              <option value="">Kozhikode</option>
+              <option value="">Malappuram</option>
+              <option value="">Palakkad</option> 
+              <option value="">Wayanad</option>
+              <option value="">Thrissur</option>
+              <option value="">Ernakulam</option>
+              <option value="">Idukki</option>
+              <option value="">Kottayam</option>
+              <option value="">Alappuzha</option>
+              <option value="">Pathanamthitta</option>
+              <option value="">Kollam</option>
+              <option value="">Thiruvananthapuram</option>
+             
+
+            </select>
+          </div>
+        )}
         <div className="card">
           <>
             <h1 className="cardTitle">{selectedDistrict}</h1>
@@ -271,7 +315,7 @@ const Map = ({ selectDistrict, onSelectDistrict }) => {
                 className="cardButton"
                 onClick={() => handleSubmit(selectedDistrict)}
               >
-                View Detailed analysis
+                View Detailed Analysis
               </button>
             </div>
           </>

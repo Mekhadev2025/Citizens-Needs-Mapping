@@ -71,3 +71,49 @@ cursor:pointer;
     color:white;
     transition:.5s ease all ;
 }
+
+
+@media screen and (max-width:480px)
+{
+    .hero{
+    background-image:none;
+    margin:0;
+    height: 30.75rem;
+    }
+    .heroTitle1{
+        font-size: 3.125rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.0625rem;
+margin-top:8rem;
+margin-left:2rem;
+    }
+    .heroTitle2{
+        font-size: 2.8125rem;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin:0;
+margin-left:2rem;
+    }
+    .heroContent{
+        width:14rem;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 1.59375rem;
+margin-left:2rem;
+    }
+    .heroButton{
+        width: 8.25rem;
+height: 2.25rem;
+font-size: 0.6875rem;
+font-style: normal;
+font-weight: 700;
+line-height: 2.59375rem;
+letter-spacing: 0.03094rem;
+margin-left:2rem;
+    }
+    
+}

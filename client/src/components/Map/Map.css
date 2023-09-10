@@ -83,3 +83,19 @@ margin-top:2rem;
     width:40rem;
   }
 }
+
+@media screen and (max-width:480px)
+{
+  .mapTitle{
+    font-size: 1.5625rem;
+font-style: normal;
+font-weight: 700;
+line-height: 2.4375rem; 
+  }
+  .mapContainer{
+    flex-direction:column
+  }
+  .selectDist{
+    margin-left:3rem;
+  }
+}

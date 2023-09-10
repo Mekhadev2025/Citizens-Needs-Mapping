@@ -62,7 +62,7 @@ const Survey = () => {
         console.log("Thank you for your contribution");
         setFormData("")
          setSubmit(true)
-        // You can perform any additional actions here after a successful submission.
+      
       } else {
         console.error("Error submitting the form");
       }
