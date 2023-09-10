@@ -139,4 +139,19 @@ margin-left:1rem;
    height:2rem;
    font-size:1rem;
       }
+      .analysisTitle{
+        font-size: 1.5rem;
+        margin:0;
+        margin-left:1.2rem;
+        margin-top:2rem;
+    margin-bottom:2rem;
+      }
+
+      .analysisCont{
+        width: 20.5rem;
+        height:40rem;
+        margin:0;
+        margin-left:1rem;
+      }
+
 }

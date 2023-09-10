@@ -23,3 +23,10 @@
     border-radius:9px; 
   }
   
+@media screen and (max-width:480px)
+{
+  .horizontal-linear-gauge{
+    width: 7.57606rem;
+      height: 0.7rem;
+  }
+}

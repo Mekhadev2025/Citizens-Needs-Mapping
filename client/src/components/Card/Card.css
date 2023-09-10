@@ -55,3 +55,40 @@ letter-spacing: -0.015rem;
     right:1rem;
 
 }
+
+@media screen and (max-width:480px)
+{
+    .cardCont{
+      width: 19rem;
+      height: 3.625rem;
+      margin:0;
+      postion:relative;
+       left:1rem;
+       top:1rem;
+       
+    }
+    .cardNeed{
+      font-size: 0.625rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 0.59375rem; /* 95% */
+      letter-spacing: 0.025rem;
+    }
+    .cardVote{
+      font-size: 0.5625rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 1.5625rem; /* 277.778% */
+      letter-spacing: -0.00563rem;
+      position:relative;
+      left:1rem;
+    }
+    .cardBar{
+      width: 7.57606rem;
+      height: 0.7rem;
+    }
+    .sideBox{
+      width: 0.3125rem;
+      height: 3.625rem;
+    }
+}
