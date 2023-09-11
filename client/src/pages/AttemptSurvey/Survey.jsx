@@ -178,7 +178,7 @@ const Survey = () => {
         <option  >Select One</option>
           <option  >Public Library</option>
           <option  >Taxi Service</option>
-          <option  >Public Park and Playground</option>
+          <option  >Public Parks and Playgrounds</option>
           <option  >Traffic Control</option>
           <option  >Night Patrol</option>
           <option  >Bus Waiting Shed</option>
@@ -194,8 +194,8 @@ const Survey = () => {
           <option >Gym</option>
           <option  >Theatre</option>
           <option  >Tourist Resorts</option>
-          <option  >Metro rail Services</option>
-          <option  >Free Wifi</option>
+          <option  >Metro Rail Services</option>
+          <option  >Free WiFi</option>
           <option  >Turf</option>
         </select>
          
