@@ -90,7 +90,7 @@ const AnalysisPage = () => {
 "Theatre",
 "Tourist Resorts",
 "Metro Rail Services",
-"Free Wifi",
+"Free WiFi",
 "Turf"
   ];
 
