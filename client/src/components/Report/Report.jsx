@@ -1,15 +1,26 @@
-import React from 'react'
-import "../Report/Report.css"
+import React from "react";
+import "../Report/Report.css";
+import Bar from "../Bar/Bar";
+import ReportCard from "../ReportCard/ReportCard"
 const Report = () => {
   return (
     <div>
-        <div className="reportTitleCont">
-            <div className='sideRect'></div>
-            <h1 className="reportTitle">Beyond the Surface: Uncovering Districts' Hidden Needs</h1>
-        </div>
-      
+      <div className="reportTitleCont">
+        <div className="sideRect"></div>
+        <h1 className="reportTitle">
+          Beyond the Surface: Uncovering Districts' Hidden Needs
+        </h1>
+      </div>
+      <Bar />
+      <div className="reportContentCont">
+        <p className="reportContent">
+          Our study pinpoints Malappuram as the district grappling with the
+          highest unmet needs, demanding immediate attention.
+        </p>
+        <ReportCard/>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Report
+export default Report;
