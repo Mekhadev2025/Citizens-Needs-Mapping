@@ -16,6 +16,7 @@ const Home = ({selectedDistrict,onSelectDistrict}) => {
         member
       </p>
       <Map selectedDistrict={selectedDistrict} onSelectDistrict={onSelectDistrict}/>
+      <Report/>
     </div>
   );
 };
