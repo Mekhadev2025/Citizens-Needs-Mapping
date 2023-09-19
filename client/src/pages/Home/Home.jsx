@@ -2,6 +2,7 @@ import React from "react";
 import "../Home/Home.css";
 import Hero from "../../components/Hero/Hero";
 import Map from "../../components/Map/Map"
+import Report from "../../components/Report/Report";
 const Home = ({selectedDistrict,onSelectDistrict}) => {
   return (
     <div>
