@@ -1,6 +1,6 @@
 import React from "react";
 import "../Report/Report.css";
-import Bar from "../Bar/Bar";
+import BarGraph from "../Bar/BarGraph";
 import ReportCard from "../ReportCard/ReportCard"
 const Report = () => {
   return (
@@ -11,7 +11,7 @@ const Report = () => {
           Beyond the Surface: Uncovering Districts' Hidden Needs
         </h1>
       </div>
-      <Bar />
+      <BarGraph />
       <div className="reportContentCont">
         <p className="reportContent">
           Our study pinpoints <span className="distSpan">Malappuram</span> as the district grappling with the
