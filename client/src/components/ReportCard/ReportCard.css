@@ -1,1 +1,11 @@
-/*  */
+ 
+
+ .reportCont{
+    border-radius: 0.5rem;
+background: #FFF;
+box-shadow: 0px 7px 21px 0px rgba(0, 0, 0, 0.25);
+width: 65.875rem;
+height: 15.375rem;
+margin:auto;
+margin-top:5rem;
+ }

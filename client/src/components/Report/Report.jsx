@@ -14,7 +14,7 @@ const Report = () => {
       <Bar />
       <div className="reportContentCont">
         <p className="reportContent">
-          Our study pinpoints Malappuram as the district grappling with the
+          Our study pinpoints <span className="distSpan">Malappuram</span> as the district grappling with the
           highest unmet needs, demanding immediate attention.
         </p>
         <ReportCard/>

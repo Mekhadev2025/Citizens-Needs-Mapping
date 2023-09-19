@@ -1,9 +1,9 @@
 import React from 'react'
-
+import "../ReportCard/ReportCard.css"
 const ReportCard = () => {
   return (
-    <div>
-      report card
+    <div className='reportCont'>
+     
     </div>
   )
 }
