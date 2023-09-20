@@ -44,12 +44,12 @@ const BarGraph = () => {
       
       x: {
         grid: {
-          display: false, // Hide the x-axis grid lines
+          display: false,
         },
       },
       y: {
         grid: {
-          display: false, // Hide the y-axis grid lines
+          display: false, 
         },
       },
     },
