@@ -274,7 +274,6 @@ router.get("/total", async (req, res) => {
       }
     }
 
-    // Sort the districts based on totalUnmetNeed in descending order
     totalUnmetNeeds.sort((a, b) => b.totalUnmetNeed - a.totalUnmetNeed);
 
     res.status(200).json(totalUnmetNeeds);
