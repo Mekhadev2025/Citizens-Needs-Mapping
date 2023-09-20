@@ -1,0 +1,57 @@
+.reportTitle{
+    color: #000;
+font-family: Montserrat;
+font-size: 3rem;
+font-style: normal;
+font-weight: 500;
+line-height: 3.65625rem; 
+letter-spacing: 0.12rem;
+width: 53.5625rem;
+height: 4.6875rem;
+ 
+ margin-left:2rem;
+}
+.sideRect{
+    width: 2.25rem;
+height: 7rem;
+background: #BF0C0F;
+margin-left:6rem;
+ 
+}
+.reportTitleCont{
+    display:flex;
+ 
+    margin-top:16rem;
+}
+
+.reportContentCont{
+    border-radius: 0.4375rem;
+background: #FFF;
+box-shadow: 0px 13px 23px 9px rgba(0, 0, 0, 0.25);
+
+width: 80rem;
+height: 59.25rem;
+ margin:auto;
+}
+.reportContent{
+    color: #000;
+font-family: Montserrat;
+font-size: 2.25rem;
+font-style: normal;
+font-weight: 400;
+line-height: 157.9%;
+ margin-left:5rem;
+padding-top:2rem;
+width:69rem;
+ 
+ 
+}
+
+.distSpan{
+    color: #BF0C0F;
+    font-family: Montserrat;
+    font-size: 2.25rem;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 157.9%;
+}
