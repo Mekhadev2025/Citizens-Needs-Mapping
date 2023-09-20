@@ -231,7 +231,7 @@ router.get("/surveys/:district", async (req, res) => {
   }
 });
 
-router.get("/totalUnmetNeeds", async (req, res) => {
+router.get("/total", async (req, res) => {
   try {
     const allDistricts = ['Kasaragod',"Kannur","Wayanad","Kozhikode","Malappuram","Palakkad","Thrissur","Ernakulam","Idukki","Kottayam","Alappuzha","Pathanamthitta","Kollam","Thiruvananthapuram"];
     const totalUnmetNeeds = [];
