@@ -1,21 +1,20 @@
 import React from 'react';
 import "../ReportCard/ReportCard.css";
 
-const ReportCard = ({ data }) => {
+const ReportCard = ({ data,report,type }) => {
   if (!data || data.length === 0) {
     return <div className="reportCont">No data available</div>;
   }
-
   const firstRecord = data[0];
 
   return (
     <div className='reportCont'>
       <div className='voteCount'>
-        <div className='vote'>{firstRecord.totalUnmetNeed}</div>
+        <div className='vote'>{report}</div>
       </div>
       <div className='cardContentCont'>
         <p className="cardContent">
-          {firstRecord.totalUnmetNeed} votes for {firstRecord.reportTitle} which needs immediate attention
+          {report} votes for {type} need which requires immediate attention
         </p>
         <div className='cardDate'>Date of publication: {firstRecord.publicationDate}</div>
       </div>
