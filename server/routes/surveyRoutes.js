@@ -32,11 +32,9 @@ router.post("/surveys", async (req, res) => {
     res.status(201).json({ message: "Survey response submitted successfully" });
   } catch (error) {
     console.error(error);
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while submitting the survey response",
-      });
+    res.status(500).json({
+      message: "An error occurred while submitting the survey response",
+    });
   }
 });
 
@@ -233,7 +231,22 @@ router.get("/surveys/:district", async (req, res) => {
 
 router.get("/total", async (req, res) => {
   try {
-    const allDistricts = ['Kasaragod',"Kannur","Wayanad","Kozhikode","Malappuram","Palakkad","Thrissur","Ernakulam","Idukki","Kottayam","Alappuzha","Pathanamthitta","Kollam","Thiruvananthapuram"];
+    const allDistricts = [
+      "Kasaragod",
+      "Kannur",
+      "Wayanad",
+      "Kozhikode",
+      "Malappuram",
+      "Palakkad",
+      "Thrissur",
+      "Ernakulam",
+      "Idukki",
+      "Kottayam",
+      "Alappuzha",
+      "Pathanamthitta",
+      "Kollam",
+      "Thiruvananthapuram",
+    ];
     const totalUnmetNeeds = [];
 
     for (const district of allDistricts) {
@@ -268,22 +281,29 @@ router.get("/total", async (req, res) => {
 
       if (result.length > 0) {
         const districtData = result[0];
-        const { district, totalBasicNeeds, totalStandardNeeds, totalPremiumNeeds } = districtData;
-        const totalUnmetNeed = totalBasicNeeds + totalStandardNeeds + totalPremiumNeeds;
+        const {
+          district,
+          totalBasicNeeds,
+          totalStandardNeeds,
+          totalPremiumNeeds,
+        } = districtData;
+        const totalUnmetNeed =
+          totalBasicNeeds + totalStandardNeeds + totalPremiumNeeds;
         totalUnmetNeeds.push({ district, totalUnmetNeed });
       }
     }
 
-    // Sort the districts based on totalUnmetNeed in descending order
     totalUnmetNeeds.sort((a, b) => b.totalUnmetNeed - a.totalUnmetNeed);
 
     res.status(200).json(totalUnmetNeeds);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "An error occurred while calculating total unmet needs" });
+    res
+      .status(500)
+      .json({
+        message: "An error occurred while calculating total unmet needs",
+      });
   }
 });
 
-
- 
 module.exports = router;
