@@ -43,27 +43,38 @@ const Report = () => {
           const response = await axios.get(
             `https://citizens-needs-mapping-whzj.vercel.app/api/surveys/${disName}`
           );
-    
+
           console.log("filtered response", response.data);
-    
-          // Create a new object with only the needed properties
-          const filteredData = {
-            totalBasicNeeds: response.data.totalBasicNeeds,
-            totalStandardNeeds: response.data.totalStandardNeeds,
-            totalPremiumNeeds: response.data.totalPremiumNeeds,
-          };
-    
-          setFilteredData(filteredData);
-          console.log("Filtered Data", filteredData);
+
+          // Check if the current month has changed
+          const currentMonth = new Date().getMonth();
+          const cachedMonth = parseInt(localStorage.getItem("cachedMonth"), 10);
+
+          if (currentMonth !== cachedMonth) {
+            // If the month has changed, fetch fresh data and update cache
+            const freshData = {
+              totalBasicNeeds: response.data.totalBasicNeeds,
+              totalStandardNeeds: response.data.totalStandardNeeds,
+              totalPremiumNeeds: response.data.totalPremiumNeeds,
+            };
+
+            localStorage.setItem("cachedData", JSON.stringify(freshData));
+            localStorage.setItem("cachedMonth", currentMonth);
+            setFilteredData(freshData);
+          } else {
+            // Use cached data if the month hasn't changed
+            const cachedData = JSON.parse(localStorage.getItem("cachedData"));
+            setFilteredData(cachedData);
+          }
         }
       } catch (error) {
         console.error("Error fetching filtered data:", error);
       }
     };
-    
+
     fetchFilteredData();
   }, [disName]);
- 
+
   return (
     <div>
       <div className="reportTitleCont">
@@ -79,9 +90,21 @@ const Report = () => {
           <span className="distSpan">{first?.district}</span> as the district grappling
           with the highest unmet needs, demanding immediate attention.
         </p>
-        <ReportCard type="basic" data={apiData} report={filteredData.totalBasicNeeds}/>
-        <ReportCard type="standard" data={apiData} report={filteredData.totalStandardNeeds}/>
-        <ReportCard type="premium" data={apiData} report={filteredData.totalPremiumNeeds}/>
+        <ReportCard
+          type="basic"
+          data={apiData}
+          report={filteredData.totalBasicNeeds}
+        />
+        <ReportCard
+          type="standard"
+          data={apiData}
+          report={filteredData.totalStandardNeeds}
+        />
+        <ReportCard
+          type="premium"
+          data={apiData}
+          report={filteredData.totalPremiumNeeds}
+        />
       </div>
     </div>
   );
