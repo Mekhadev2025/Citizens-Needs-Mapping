@@ -39,6 +39,10 @@ router.post("/surveys", async (req, res) => {
   }
 });
 
+
+
+
+
 router.get("/", (req, res) => {
   res.send("Helloe");
 });
@@ -230,109 +234,112 @@ router.get("/surveys/:district", async (req, res) => {
   }
 });
 
-router.get("/total", async (req, res) => {
-  try {
-    const allDistricts = [
-      "Kasaragod",
-      "Kannur",
-      "Wayanad",
-      "Kozhikode",
-      "Malappuram",
-      "Palakkad",
-      "Thrissur",
-      "Ernakulam",
-      "Idukki",
-      "Kottayam",
-      "Alappuzha",
-      "Pathanamthitta",
-      "Kollam",
-      "Thiruvananthapuram",
-    ];
-    const totalUnmetNeeds = [];
+// router.get("/total", async (req, res) => {
+//   try {
+//     const allDistricts = [
+//       "Kasaragod",
+//       "Kannur",
+//       "Wayanad",
+//       "Kozhikode",
+//       "Malappuram",
+//       "Palakkad",
+//       "Thrissur",
+//       "Ernakulam",
+//       "Idukki",
+//       "Kottayam",
+//       "Alappuzha",
+//       "Pathanamthitta",
+//       "Kollam",
+//       "Thiruvananthapuram",
+//     ];
+//     const totalUnmetNeeds = [];
 
-    for (const district of allDistricts) {
-      const result = await Survey.aggregate([
-        {
-          $match: { district },
-        },
-        {
-          $group: {
-            _id: "$district",
-            uniqueBasicNeeds: {
-              $addToSet: "$basicNeed",
-            },
-            uniqueStandardNeeds: {
-              $addToSet: "$stdNeed",
-            },
-            uniquePremiumNeeds: {
-              $addToSet: "$preNeed",
-            },
-          },
-        },
-        {
-          $project: {
-            _id: 0,
-            district: "$_id",
-            totalBasicNeeds: { $size: "$uniqueBasicNeeds" },
-            totalStandardNeeds: { $size: "$uniqueStandardNeeds" },
-            totalPremiumNeeds: { $size: "$uniquePremiumNeeds" },
-          },
-        },
-      ]);
+//     for (const district of allDistricts) {
+//       const result = await Survey.aggregate([
+//         {
+//           $match: { district },
+//         },
+//         {
+//           $group: {
+//             _id: "$district",
+//             uniqueBasicNeeds: {
+//               $addToSet: "$basicNeed",
+//             },
+//             uniqueStandardNeeds: {
+//               $addToSet: "$stdNeed",
+//             },
+//             uniquePremiumNeeds: {
+//               $addToSet: "$preNeed",
+//             },
+//           },
+//         },
+//         {
+//           $project: {
+//             _id: 0,
+//             district: "$_id",
+//             totalBasicNeeds: { $size: "$uniqueBasicNeeds" },
+//             totalStandardNeeds: { $size: "$uniqueStandardNeeds" },
+//             totalPremiumNeeds: { $size: "$uniquePremiumNeeds" },
+//           },
+//         },
+//       ]);
 
-      if (result.length > 0) {
-        const districtData = result[0];
-        const {
-          district,
-          totalBasicNeeds,
-          totalStandardNeeds,
-          totalPremiumNeeds,
-        } = districtData;
-        const totalUnmetNeed =
-          totalBasicNeeds + totalStandardNeeds + totalPremiumNeeds;
-        totalUnmetNeeds.push({ district, totalUnmetNeed });
-      }
-    }
+//       if (result.length > 0) {
+//         const districtData = result[0];
+//         const {
+//           district,
+//           totalBasicNeeds,
+//           totalStandardNeeds,
+//           totalPremiumNeeds,
+//         } = districtData;
+//         const totalUnmetNeed =
+//           totalBasicNeeds + totalStandardNeeds + totalPremiumNeeds;
+//         totalUnmetNeeds.push({ district, totalUnmetNeed });
+//       }
+//     }
 
-    totalUnmetNeeds.sort((a, b) => b.totalUnmetNeed - a.totalUnmetNeed);
+//     totalUnmetNeeds.sort((a, b) => b.totalUnmetNeed - a.totalUnmetNeed);
 
-    res.status(200).json(totalUnmetNeeds);
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({
-        message: "An error occurred while calculating total unmet needs",
-      });
-  }
-});
-
-
-router.get("/report",(req,res)=>{
-  res.send("report dsata to be stored here")
-})
+//     res.status(200).json(totalUnmetNeeds);
+//   } catch (error) {
+//     console.error(error);
+//     res
+//       .status(500)
+//       .json({
+//         message: "An error occurred while calculating total unmet needs",
+//       });
+//   }
+// });
 
 
-router.post("/report", async (req, res) => {
-  try {
-    const data = {
-      district: req.body.district,
-      basicNeeds: req.body.basicNeeds,
-      stdNeeds: req.body.stdNeeds,
-      preNeeds: req.body.preNeeds,
-      data: req.body.data,
-    };
+// router.get("/report",(req,res)=>{
+//   res.send("report dsata to be stored here")
+// })
+
+
+// router.post("/report", async (req, res) => {
+//   try {
+//     const data = {
+//       district: req.body.district,
+//       basicNeeds: req.body.basicNeeds,
+//       stdNeeds: req.body.stdNeeds,
+//       preNeeds: req.body.preNeeds,
+//       data: req.body.data,
+//       date:req.body.date
+//     };
+
     
-    const report = new Report(data);
+//     const report = new Report(data);
 
-    await report.save();
-    res.status(201).json({ message: "Report data submitted successfully" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      message: "An error occurred while submitting the report data",
-    });
-  }
-});
+//     await report.save();
+//     res.status(201).json({ message: "Report data submitted successfully" });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({
+//       message: "An error occurred while submitting the report data",
+//     });
+//   }
+// });
 
 module.exports = router;
+

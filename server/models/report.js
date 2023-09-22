@@ -8,7 +8,11 @@ const reportSchema = new mongoose.Schema({
   data:[{
     district:String,
     totalUnmetNeed:String,
-  }]
+  }],
+  date:{
+    type:Date,
+    default:Date.now
+  }
  
 });
 

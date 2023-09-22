@@ -10,8 +10,11 @@ const BarGraph = ({ data }) => {
     // You need to transform the data into the format expected by Chart.js
     if (data && Array.isArray(data)) {
       const labels = data.map((item) => item.district);
-      const dataValues = data.map((item) => item.totalUnmetNeed);
-
+       const newDatas=data[0].data;
+ 
+      const dataValues = newDatas.map((item) => item.totalUnmetNeed);
+     
+      console.log(dataValues)
       const newData = {
         labels: labels,
         datasets: [
