@@ -31,7 +31,7 @@ app.use("/api",reportRoutes)
 cron.schedule("0 0 1 * *", async () => {
   try {
     // Fetch data from the /total endpoint
-    const response = await axios.get("http://localhost:5000/api/total");
+    const response = await axios.get("https://citizens-needs-mapping-whzj.vercel.app/api/total");
     const totalData = response.data; // Assuming the API response contains the necessary data for the report
 
     // Get the current month and year
