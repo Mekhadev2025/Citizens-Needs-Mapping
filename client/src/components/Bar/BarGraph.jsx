@@ -2,19 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import "../Bar/BarGraph.css";
 
-const BarGraph = ({ data }) => {
+const BarGraph = ({ value }) => {
   const [chartData, setChartData] = useState(null);
-
+  const data = value.data
+  
   useEffect(() => {
     // Assuming your data prop contains an array of data
     // You need to transform the data into the format expected by Chart.js
     if (data && Array.isArray(data)) {
       const labels = data.map((item) => item.district);
-       const newDatas=data[0].data;
- 
-      const dataValues = newDatas.map((item) => item.totalUnmetNeed);
-     
-      console.log(dataValues)
+      const dataValues = data.map((item) => item.totalUnmetNeed);
+  // console.log("data",data[0].data.totalUnmetNeed)
       const newData = {
         labels: labels,
         datasets: [

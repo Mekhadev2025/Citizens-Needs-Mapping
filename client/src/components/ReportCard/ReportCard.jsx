@@ -5,7 +5,7 @@ const ReportCard = ({ data, report, type }) => {
   console.log('reposting=', report);
   console.log('dathai====', data);
   console.log('type=', type);
-  const responseDateString = data[0].date; // Your response date
+  const responseDateString = data.date; // Your response date
   // Create a Date object from the response date string
   const responseDate = new Date(responseDateString);
   console.log('date', responseDate);
