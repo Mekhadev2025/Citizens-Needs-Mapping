@@ -16,15 +16,24 @@ const ReportCard = ({ data, report, type }) => {
 
   // Calculate the difference in days
   const daysDiff = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-   
+  let backgroundColor = '';
+
+  if (type === 'basic') {
+    backgroundColor = 'red';
+  } else if (type === 'standard') {
+    backgroundColor = 'orange';
+  } else {
+    backgroundColor = 'blue';
+  }
+  
   return (
     <div className='reportCont'>
-      <div className='voteCount'>
-        <div className='vote'>{report}</div>
+      <div className='voteCount'style={{ backgroundColor }}>
+        <div className='vote' >{report}</div>
       </div>
       <div className='cardContentCont'>
-        <p className='cardContent'>
-          {report} votes for {type} need which requires immediate attention
+      <p className='cardContent'>
+          {report} votes for <span style={{ fontWeight: 'bold', textTransform: 'capitalize' }}>{type} need</span>  which requires immediate attention
         </p>
         <div className='cardDate'>Date of publication:{responseDate.getDate()}-{responseDate.getMonth()+1}-{responseDate.getFullYear()} </div>
       </div>
