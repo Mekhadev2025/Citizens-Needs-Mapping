@@ -1,43 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
-import axios from "axios";
 import "../Bar/BarGraph.css";
 
-const BarGraph = () => {
+const BarGraph = ({ data }) => {
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://citizens-needs-mapping-whzj.vercel.app/api/total")
-      .then((res) => {
-        console.log("Data received:", res.data);
+    // Assuming your data prop contains an array of data
+    // You need to transform the data into the format expected by Chart.js
+    if (data && Array.isArray(data)) {
+      const labels = data.map((item) => item.district);
+      const dataValues = data.map((item) => item.totalUnmetNeed);
 
-        // Assuming your API response contains an array of data
-        // You need to transform the data from the API response into the format expected by Chart.js
-        const labels = res.data.map((item) => item.district);
-        const dataValues = res.data.map((item) => item.totalUnmetNeed);
+      const newData = {
+        labels: labels,
+        datasets: [
+          {
+            label: "Unmet Needs",
+            backgroundColor: "#BF0C0F",
+            borderColor: "none",
+            borderWidth: 1,
+            hoverBackgroundColor: "rgba(191, 12, 15, 0.4)",
+            hoverBorderColor: "none",
+            data: dataValues,
+          },
+        ],
+      };
 
-        const newData = {
-          labels: labels,
-          datasets: [
-            {
-              label: "Unmet Needs",
-              backgroundColor: "#BF0C0F",
-              borderColor: "none",
-              borderWidth: 1,
-              hoverBackgroundColor: "rgba(191, 12, 15, 0.4)",
-              hoverBorderColor: "none",
-              data: dataValues,
-            },
-          ],
-        };
-
-        setChartData(newData);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+      setChartData(newData);
+    }
+  }, [data]);
 
   const options = {
     scales: {
