@@ -2,6 +2,21 @@ const express = require("express");
 const router = express.Router();
 const Survey = require("../models/survey.js");
 
+
+const schedule = require("node-cron");
+schedule.schedule("0 0 1 * *", async () => {
+  try {
+ 
+    const freshData = await fetchData();
+ 
+    localStorage.setItem("cachedData", JSON.stringify(freshData));
+  } catch (error) {
+    console.error("Error refreshing data:", error);
+  }
+});
+
+
+
 router.post("/surveys", async (req, res) => {
   try {
     const {
