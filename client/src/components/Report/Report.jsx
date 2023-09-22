@@ -6,15 +6,17 @@ import axios from "axios";
 
 const Report = () => {
   const [apiData, setApiData] = useState(null);
-
+  console.log("api data",apiData)
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/report"
+          "https://citizens-needs-mapping-whzj.vercel.app/api/report"
         );
         console.log("response data", response.data);
-        setApiData(response.data);
+        const finalRes=response.data[response.data.length-1]
+        console.log(finalRes)
+        setApiData(finalRes);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -33,16 +35,16 @@ const Report = () => {
       </div>
       {apiData && (
         <>
-          <BarGraph data={apiData} />
+          <BarGraph value={apiData} />
           <div className="reportContentCont">
             <p className="reportContent">
               Our study pinpoints{" "}
               <span className="distSpan">{apiData.district}</span> as the district grappling
               with the highest unmet needs, demanding immediate attention.
             </p>
-            <ReportCard type="basic" data={apiData} report={apiData[0].basicNeeds}/>
-            <ReportCard type="standard" data={apiData} report={apiData[0].stdNeeds}/>
-            <ReportCard type="premium" data={apiData} report={apiData[0].preNeeds}/>
+            <ReportCard type="basic" data={apiData} report={apiData.basicNeeds}/>
+            <ReportCard type="standard" data={apiData} report={apiData.stdNeeds}/>
+            <ReportCard type="premium" data={apiData} report={apiData.preNeeds}/>
           </div>
         </>
       )}
