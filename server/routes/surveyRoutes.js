@@ -3,7 +3,6 @@ const router = express.Router();
 const Survey = require("../models/survey.js");
  
  
-
 router.post("/surveys", async (req, res) => {
   try {
     const {
