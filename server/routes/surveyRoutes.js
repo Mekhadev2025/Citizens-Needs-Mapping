@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Survey = require("../models/survey.js");
- 
+const Report = require("../models/report.js");
  
 router.post("/surveys", async (req, res) => {
   try {
@@ -304,6 +304,34 @@ router.get("/total", async (req, res) => {
       .json({
         message: "An error occurred while calculating total unmet needs",
       });
+  }
+});
+
+
+router.get("/report",(req,res)=>{
+  res.send("report dsata to be stored here")
+})
+
+
+router.post("/report", async (req, res) => {
+  try {
+    const data = {
+      district: req.body.district,
+      basicNeeds: req.body.basicNeeds,
+      stdNeeds: req.body.stdNeeds,
+      preNeeds: req.body.preNeeds,
+      data: req.body.data,
+    };
+    
+    const report = new Report(data);
+
+    await report.save();
+    res.status(201).json({ message: "Report data submitted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: "An error occurred while submitting the report data",
+    });
   }
 });
 
