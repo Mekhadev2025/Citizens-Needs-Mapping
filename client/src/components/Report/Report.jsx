@@ -8,7 +8,11 @@ const Report = () => {
   const [apiData, setApiData] = useState(null);
   const [first, setFirst] = useState(null);
   const [disName, setDisName] = useState("");
-  const [filteredData, setFilteredData] = useState(null);
+  const [filteredData, setFilteredData] = useState({
+    totalBasicNeeds: 0,
+    totalStandardNeeds: 0,
+    totalPremiumNeeds: 0,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,13 +54,14 @@ const Report = () => {
           };
     
           setFilteredData(filteredData);
-          console.log("Filtered HOOOO",filteredData)
+          console.log("Filtered Data", filteredData);
         }
       } catch (error) {
         console.error("Error fetching filtered data:", error);
       }
     };
     
+    fetchFilteredData();
   }, [disName]);
  
   return (
@@ -74,10 +79,9 @@ const Report = () => {
           <span className="distSpan">{first?.district}</span> as the district grappling
           with the highest unmet needs, demanding immediate attention.
         </p>
-        <ReportCard data={apiData} report={filteredData.totalBasicNeeds} type="basic"/>
-        <ReportCard data={apiData} report={filteredData.totalStandardNeeds} type="standard"/>
-        <ReportCard data={apiData} report={filteredData.totalPremiumNeeds} type="premium" />
-        
+        <ReportCard type="basic" data={apiData} report={filteredData.totalBasicNeeds}/>
+        <ReportCard type="standard" data={apiData} report={filteredData.totalStandardNeeds}/>
+        <ReportCard type="premium" data={apiData} report={filteredData.totalPremiumNeeds}/>
       </div>
     </div>
   );
