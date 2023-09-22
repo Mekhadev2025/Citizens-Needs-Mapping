@@ -1,21 +1,27 @@
 const express = require("express");
 const router = express.Router();
 const Survey = require("../models/survey.js");
-
-
+const NodeCache = require("node-cache"); // Import the node-cache library
+ 
+const cache = new NodeCache();
 const schedule = require("node-cron");
 schedule.schedule("0 0 1 * *", async () => {
   try {
- 
-    const freshData = await fetchData();
- 
-    localStorage.setItem("cachedData", JSON.stringify(freshData));
+    const freshData = await fetchData(); // Implement this function to fetch fresh data
+    cache.set("cachedData", freshData); // Store fresh data in the cache
   } catch (error) {
     console.error("Error refreshing data:", error);
   }
 });
 
-
+router.get("/cachedData", (req, res) => {
+  const cachedData = cache.get("cachedData"); // Retrieve data from the cache
+  if (cachedData) {
+    res.json(cachedData);
+  } else {
+    res.status(404).json({ message: "Cached data not found" });
+  }
+});
 
 router.post("/surveys", async (req, res) => {
   try {
